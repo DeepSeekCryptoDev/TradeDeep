@@ -1,109 +1,119 @@
 # TradeDeep
-This bot combines token analysis, blockchain utilities, and trading functionality via Telegram and BonkBot API built by DeepSeek
 
-## Features
-1. **DexScreener Analysis**: Scrape and analyze recently launched pairs.
-2. **Tweetscout Integration**: Analyze token social activity.
-3. **RugCheck Analysis**: Evaluate contract safety metrics.
-4. **Telegram Bot**: Interact with Ethereum and Solana wallets and initiate trades/withdrawals.
-5. **BonkBot Integration**: Execute trades and withdrawals via BonkBot.
-6. **DeepSeek Integration**: Built with Deepseek
-
-## Setup
-1. Clone the repository:
-   ```bash
-   git clone (https://github.com/DeepSeekCryptoDev/TradeDeep/tree/main)
-   cd tradedeep-bot
-   
-2. Install Python dependencies:
-   pip install -r requirements.txt
-
-4. Configure environment variables in .env:
-   TELEGRAM_API_KEY=your_telegram_bot_api_key
-   BONKBOT_API_KEY=your_bonkbot_api_key
-
-4. Run the Telegram bot:
-   python scripts/telegram_bot.py
+**TradeDeep** is a powerful and modular bot designed for crypto enthusiasts. It provides token analysis, social activity tracking, and trading functionality via Telegram, all while leveraging the BonkBot API for seamless trades and withdrawals. Built with scalability and ease of use in mind, TradeDeep helps users stay ahead in the ever-evolving crypto space. TradeDeep was created exclusively using DeepSeek.
 
 ---
 
-#### **`docs/features/dexscreener.md`**
-DexScreener feature documentation.
+## **Features**
 
-```markdown
-# DexScreener Analysis
+1. **DexScreener Analysis**
+   - Scrapes and analyzes newly launched pairs on DexScreener within the last 24 hours.
+   - Filters tokens based on transaction volume and activity metrics.
+   - Outputs results in a structured format (CSV or JSON).
 
-This module scrapes pairs launched in the last 24 hours and filters them based on transaction metrics.
+2. **Tweetscout Integration**
+   - Monitors social activity of specific tokens.
+   - Focuses on influencers with over 40,000 followers who are engaging with the token's page.
 
-## Usage
-Run the following command:
+3. **RugCheck Analysis**
+   - Analyzes token contracts for key safety metrics such as:
+     - Burned liquidity.
+     - Mintable and pausable contract flags.
+   - Excludes tokens with safety scores below 85%.
+
+4. **Telegram Bot**
+   - Provides an intuitive interface for:
+     - Generating Ethereum and Solana wallet addresses.
+     - Initiating trades and withdrawals using the BonkBot API.
+     - Monitoring token analytics on demand.
+
+5. **BonkBot Integration**
+   - Executes trades and processes withdrawals.
+   - Handles market conditions dynamically.
+   - Offers seamless integration for trading automation.
+
+---
+
+## **Setup**
+
+### **1. Clone the Repository**
+
+Clone the repository to your local environment:
+
 ```bash
-python scripts/dexscreener_scraper.py
+git clone https://github.com/your-username/TradeDeep.git
+cd TradeDeep
+```
 
+### **2. Install Dependencies**
 
----
+Install the required Python packages:
 
-#### **`docs/features/tweetscout.md`**
-Tweetscout feature documentation.
-
-```markdown
-# Tweetscout Integration
-
-This module identifies influencers interacting with a token on Tweetscout.
-
-## Usage
-Run the following command:
 ```bash
-python scripts/tweetscout_scraper.py
+pip install -r requirements.txt
+```
 
----
+### **3. Configure Environment Variables**
 
-#### **`docs/features/rugcheck.md`**
-RugCheck feature documentation.
+Create a `.env` file in the project root and add the following variables:
 
-```markdown
-# RugCheck Analysis
+```plaintext
+TELEGRAM_API_KEY=your_telegram_bot_api_key
+BONKBOT_API_KEY=your_bonkbot_api_key
+```
 
-This module analyzes token contracts and evaluates safety metrics.
+### **4. Run the Bot**
 
-## Usage
-Run the following command:
-```bash
-python scripts/rugcheck_scraper.py
+Start the Telegram bot or execute specific scripts:
 
-
----
-
-#### **`docs/features/telegram-bot.md`**
-Telegram bot documentation.
-
-```markdown
-# Telegram Bot
-
-The Telegram bot provides the following commands:
-
-1. `/generate_eth`: Generate an Ethereum address.
-2. `/generate_sol`: Generate a Solana address.
-3. `/trade`: Initiate a trade via BonkBot.
-4. `/withdraw`: Process withdrawals via BonkBot.
-
-## Starting the Bot
 ```bash
 python scripts/telegram_bot.py
-
+```
 
 ---
 
-#### **`docs/features/bonkbot.md`**
-BonkBot integration documentation.
+## **Usage**
 
-```markdown
-# BonkBot Integration
+- **Telegram Commands**:
+  - `/generate_eth`: Generate an Ethereum address.
+  - `/generate_sol`: Generate a Solana address.
+  - `/trade`: Initiate a trade via BonkBot.
+  - `/withdraw`: Process a withdrawal via BonkBot.
+  - `/analyze`: Run token analysis on demand.
 
-This project uses BonkBot's API for trades and withdrawals.
+- **Standalone Scripts**:
+  - Run individual modules like DexScreener, Tweetscout, or RugCheck for specialized tasks.
 
-## Configuration
-Add your API key to `.env`:
-```plaintext
-BONKBOT_API_KEY=your_bonkbot_api_key
+---
+
+## **Contributing**
+
+We welcome contributions from the community! To contribute:
+
+1. Fork the repository.
+2. Create a feature branch:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add feature description"
+   ```
+4. Push to your branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Open a Pull Request.
+
+---
+
+## **License**
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## **Contact**
+
+For support or inquiries, please reach out via GitHub Issues or email us at support@tradedeep.io.
 
