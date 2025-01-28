@@ -41,7 +41,7 @@
 Clone the repository to your local environment:
 
 ```bash
-git clone https://github.com/your-username/TradeDeep.git
+git clone https://github.com/DeepSeekCryptoDev/TradeDeep.git
 cd TradeDeep
 ```
 
