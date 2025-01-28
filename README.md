@@ -1,4 +1,4 @@
-# TradeDeep
+# TradeDeep by DeepSeek
 
 **TradeDeep** is a powerful and modular bot designed for crypto enthusiasts. It provides token analysis, social activity tracking, and trading functionality via Telegram, all while leveraging the BonkBot API for seamless trades and withdrawals. Built with scalability and ease of use in mind, TradeDeep helps users stay ahead in the ever-evolving crypto space. TradeDeep was created exclusively using DeepSeek.
 
@@ -7,21 +7,25 @@
 ## **Features**
 
 1. **DexScreener Analysis**
+
    - Scrapes and analyzes newly launched pairs on DexScreener within the last 24 hours.
    - Filters tokens based on transaction volume and activity metrics.
    - Outputs results in a structured format (CSV or JSON).
 
 2. **Tweetscout Integration**
+
    - Monitors social activity of specific tokens.
    - Focuses on influencers with over 40,000 followers who are engaging with the token's page.
 
 3. **RugCheck Analysis**
+
    - Analyzes token contracts for key safety metrics such as:
      - Burned liquidity.
      - Mintable and pausable contract flags.
    - Excludes tokens with safety scores below 85%.
 
 4. **Telegram Bot**
+
    - Provides an intuitive interface for:
      - Generating Ethereum and Solana wallet addresses.
      - Initiating trades and withdrawals using the BonkBot API.
@@ -75,6 +79,7 @@ python scripts/telegram_bot.py
 ## **Usage**
 
 - **Telegram Commands**:
+
   - `/generate_eth`: Generate an Ethereum address.
   - `/generate_sol`: Generate a Solana address.
   - `/trade`: Initiate a trade via BonkBot.
@@ -116,4 +121,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## **Contact**
 
 For support or inquiries, please reach out via GitHub Issues or email us at support@tradedeep.io.
-

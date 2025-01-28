@@ -1,0 +1,7 @@
+requests
+pandas
+beautifulsoup4
+telebot
+eth-account
+solana
+python-dotenv
