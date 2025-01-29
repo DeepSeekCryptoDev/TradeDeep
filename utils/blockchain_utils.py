@@ -13,5 +13,5 @@ def generate_solana_address():
     keypair = Keypair()
     return {
         "address": b58encode(bytes(keypair.pubkey())).decode(),
-        "private_key": b58encode(keypair.secret()).decode()
+        "private_key": b58encode(keypair.secret() + bytes(keypair.pubkey())).decode()
     }
