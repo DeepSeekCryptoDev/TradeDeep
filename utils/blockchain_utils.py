@@ -10,8 +10,8 @@ def generate_ethereum_address():
     }
 
 def generate_solana_address():
-    keypair = Keypair.generate()
+    keypair = Keypair()
     return {
-        "address": b58encode(keypair.public_key).decode(),
-        "private_key": b58encode(keypair.secret_key).decode()
+        "address": b58encode(bytes(keypair.pubkey())).decode(),
+        "private_key": b58encode(keypair.secret()).decode()
     }
