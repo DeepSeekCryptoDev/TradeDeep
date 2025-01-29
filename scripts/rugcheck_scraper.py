@@ -2,13 +2,13 @@ import requests
 import pandas as pd
 
 # Base URL for rugcheck.xyz API or web scraping
-RUGCHECK_API_URL = "https://rugcheck.xyz/api/check"  # Example API URL (modify as needed)
+RUGCHECK_API_URL = "https://api.rugcheck.xyz/v1/tokens"  
 
 # Function to fetch token analysis data
 def fetch_token_data(contract_address):
     try:
         # API request to check the token's contract
-        response = requests.get(f"{RUGCHECK_API_URL}/{contract_address}")
+        response = requests.get(f"{RUGCHECK_API_URL}/{contract_address}/report")
         if response.status_code == 200:
             print(f"Successfully fetched data for contract: {contract_address}")
             return response.json()
@@ -23,23 +23,21 @@ def fetch_token_data(contract_address):
 def analyze_token(data):
     try:
         # Extract relevant details
-        safety_score = data.get("safetyScore", 0)
-        liquidity_burned = data.get("liquidity", {}).get("burned", False)
-        mintable = data.get("permissions", {}).get("mintable", False)
-        pausable = data.get("permissions", {}).get("pausable", False)
+        safety_score = data.get("score", 0)
+        mintable = data.get("token", {}).get("mintAuthority", False)
+        pausable = data.get("token", {}).get("freezeAuthority", False)
 
-        # Exclude tokens with safety score below 85%
-        if safety_score < 85:
+        # Exclude tokens with safety score below 100
+        if safety_score < 100:
             print(f"Token excluded due to low safety score: {safety_score}")
             return None
 
         # Return analyzed data
         return {
-            "contract_address": data.get("contractAddress", "Unknown"),
-            "token_name": data.get("tokenName", "Unknown"),
-            "token_symbol": data.get("tokenSymbol", "Unknown"),
+            "contract_address": data.get("mint", "Unknown"),
+            "token_name": data.get("tokenMeta", {}).get("name", "Unknown"),
+            "token_symbol": data.get("tokenMeta", {}).get("symbol", "Unknown"),
             "safety_score": safety_score,
-            "liquidity_burned": liquidity_burned,
             "mintable": mintable,
             "pausable": pausable,
         }

@@ -4,4 +4,5 @@ beautifulsoup4
 telebot
 eth-account
 solana
+solders
 python-dotenv

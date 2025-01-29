@@ -1,5 +1,5 @@
 from eth_account import Account
-from solana.keypair import Keypair
+from solders.keypair import Keypair
 from base58 import b58encode
 
 def generate_ethereum_address():
