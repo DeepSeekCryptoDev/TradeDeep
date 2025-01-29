@@ -71,7 +71,7 @@ BONKBOT_API_KEY=your_bonkbot_api_key
 Start the Telegram bot or execute specific scripts:
 
 ```bash
-python scripts/telegram_bot.py
+python3 -m scripts.telegram_bot
 ```
 
 ---
